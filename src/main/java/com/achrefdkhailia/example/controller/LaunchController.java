@@ -1,5 +1,6 @@
 package com.achrefdkhailia.example.controller;
 
+import com.achrefdkhailia.example.model.User;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.achrefdkhailia.example.repository.UserRepository;
@@ -52,5 +54,11 @@ public class LaunchController {
         userRepository.deleteAll();
         String result="Data deleted from H2 Database /table user, " + nbRows.intValue() +"rows deleted ";
         return result;
+    }    @GetMapping("/findAll")
+    public List<User> findAllDb(){
+        Long nbRows=userRepository.count();
+
+        String result="Data found from H2 Database /table user, " + nbRows.intValue() +"rows retrieved ";
+        return userRepository.findAll();
     }
 }

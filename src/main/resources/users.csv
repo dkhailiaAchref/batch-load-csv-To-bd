@@ -1,4 +1,7 @@
-id,name,dept,salary
-1,Peter,001,12000
-2,Sam,002,13000
-3,Ryan,003,10000
+id,name,dept,salary,experience
+1,Amine,001,12000 ,6
+2,Aziz,001,11000,5
+3,Achraf.B,002,10000,4
+4,Cyrile.B,001,13000,8
+5,Remy,003,17000,14
+6,Achref,004,17000,13

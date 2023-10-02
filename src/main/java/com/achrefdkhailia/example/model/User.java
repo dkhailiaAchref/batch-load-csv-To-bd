@@ -13,13 +13,16 @@ public class User {
     private String dept;
     private Integer salary;
     private Date time;
+    private String experience;
 
-    public User(Integer id, String name, String dept, Integer salary, Date time) {
+
+    public User(Integer id, String name, String dept, Integer salary, Date time,String experience) {
         this.id = id;
         this.name = name;
         this.dept = dept;
         this.salary = salary;
         this.time = time;
+        this.experience = experience;
     }
 
     public User() {
@@ -55,6 +58,14 @@ public class User {
 
     public void setSalary(Integer salary) {
         this.salary = salary;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
     }
 
     @Override
