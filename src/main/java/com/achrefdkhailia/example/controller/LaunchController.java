@@ -6,9 +6,7 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +23,7 @@ public class LaunchController {
 
     @Autowired UserRepository userRepository;
 
-    @GetMapping
-    @RequestMapping("/load")
+    @PostMapping("/load")
     public BatchStatus load() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
 
 
@@ -45,8 +42,7 @@ public class LaunchController {
         return jobExecution.getStatus();
     }
 
-    @GetMapping
-    @RequestMapping("/purge")
+    @DeleteMapping("/purge")
     public String purgeDb(){
         Long nbRows=userRepository.count();
         userRepository.deleteAll();
